@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zoom FX Controller</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body class="bg-slate-900 text-white flex items-center justify-center h-screen font-sans">
+    
+    <div x-data="{ lag: false, snap: false }" class="bg-slate-800 p-8 rounded-2xl shadow-2xl w-96 border border-slate-700">
+        <h1 class="text-2xl font-bold text-center mb-2">Control Panel</h1>
+        <p class="text-slate-400 text-sm text-center mb-8">Virtual Cam & Audio</p>
+        
+        <div class="space-y-4">
+            <!-- Tombol Efek Lag -->
+            <button @click="lag = !lag; fetch('/toggle_lag')" 
+                    :class="lag ? 'bg-red-500 hover:bg-red-600' : 'bg-emerald-500 hover:bg-emerald-600'" 
+                    class="w-full py-3 px-4 rounded-xl font-semibold transition duration-200 shadow-lg flex justify-center items-center gap-2">
+                <span x-text="lag ? '🔴 Matikan Efek Lag' : '📶 Nyalakan Efek Lag'"></span>
+            </button>
+
+            <!-- Tombol Efek Thanos -->
+            <button @click="snap = !snap; fetch('/toggle_snap')" 
+                    :class="snap ? 'bg-purple-500 hover:bg-purple-600' : 'bg-indigo-500 hover:bg-indigo-600'" 
+                    class="w-full py-3 px-4 rounded-xl font-semibold transition duration-200 shadow-lg flex justify-center items-center gap-2">
+                <span x-text="snap ? '✨ Muncul Kembali (Reset)' : '🌌 Menghilang (Snap)'"></span>
+            </button>
+            <div class="space-y-4">
+            <!-- Tombol Efek Lag -->
+            <button @click="lag = !lag; fetch('/toggle_lag')" 
+                    :class="lag ? 'bg-red-500 hover:bg-red-600' : 'bg-emerald-500 hover:bg-emerald-600'" 
+                    class="w-full py-3 px-4 rounded-xl font-semibold transition duration-200 shadow-lg flex justify-center items-center gap-2">
+                <span x-text="lag ? '🔴 Matikan Efek Lag' : '📶 Nyalakan Efek Lag'"></span>
+            </button>
+
+            <!-- Tombol Efek Thanos -->
+            <button @click="snap = !snap; fetch('/toggle_snap')" 
+                    :class="snap ? 'bg-purple-500 hover:bg-purple-600' : 'bg-indigo-500 hover:bg-indigo-600'" 
+                    class="w-full py-3 px-4 rounded-xl font-semibold transition duration-200 shadow-lg flex justify-center items-center gap-2">
+                <span x-text="snap ? '✨ Muncul Kembali (Reset)' : '🌌 Menghilang (Snap)'"></span>
+            </button>
+
+            <!-- Tombol Pengubah Suara -->
+            <button @click="voice = !voice; fetch('/toggle_voice')" 
+                    x-data="{ voice: false }"
+                    :class="voice ? 'bg-orange-500 hover:bg-orange-600' : 'bg-blue-500 hover:bg-blue-600'" 
+                    class="w-full py-3 px-4 rounded-xl font-semibold transition duration-200 shadow-lg flex justify-center items-center gap-2">
+                <span x-text="voice ? '🔊 Matikan Suara Robot' : '🤖 Nyalakan Suara Robot'"></span>
+            </button>
+        </div>
+    </div>
+
+</body>
+</html>

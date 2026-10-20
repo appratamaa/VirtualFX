@@ -1,0 +1,12 @@
+# Python virtual environment
+venv/
+__pycache__/
+*.pyc
+
+# PyInstaller build files
+build/
+dist/
+*.spec.lock
+
+# macOS system files
+.DS_Store
